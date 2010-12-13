@@ -20,11 +20,12 @@ to honor each entry's expiration (TTL).
 The most difficult part of the project was crunching the internal DNS packet
 format.  The original creators of the packet format implemented a "pointer"
 method, presumably to save space by reducing redundant strings inside of the
-packet.  For example, if the string ``example.com`` appears in the packet
-before a string that is intended to represent ``host.example.com``, the second
-string is shortened to ``host.offset``, where *offset* is a numeric offset
-from the start of the packet to the first occurence of the ``example.com``
-string.
+packet.
+
+For example, if the string ``example.com`` appears in the packet before a
+string that is intended to represent ``host.example.com``, the second string
+is shortened to ``host.offset``, where *offset* is a numeric offset from the
+start of the packet to the first occurence of the ``example.com`` string.
 
 There is no limit to the number of these pointers that can be used in a given
 packet, so long as they are used correctly.  It took me a while to completely
